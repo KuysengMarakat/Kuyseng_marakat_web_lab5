@@ -1,0 +1,399 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-size: 3em;
+    letter-spacing: 1px;
+    color: #f1c40f;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    align-items: center;
+}
+
+.container {
+    max-width: 450px;
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    transition: all 0.3s ease;
+}
+
+input, select {
+    width: 95%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input:hover, select:hover {
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(241,196,15,0.4);
+}
+
+input::placeholder {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+input:focus {
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 4px rgba(241,196,15,0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+
+.primary { background: #f1c40f; color: black; }
+.primary:hover { background: #d4ac0d; }
+
+.secondary { background: #3498db; color: white; }
+.secondary:hover { background: #2980b9; }
+
+.danger { background: #e74c3c; color: white; }
+.danger:hover { background: #c0392b; }
+
+.link-btn {
+    background: none;
+    color: #f1c40f;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.95em;
+    margin-top: 5px;
+}
+
+.hidden { display: none; }
+
+/* Cookie banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(15,32,39,0.98), rgba(32,58,67,0.98), rgba(44,83,100,0.98));
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    text-align: center;
+    display: none;
+    font-size: 1em;
+    border-top: 2px solid rgba(241,196,15,0.5);
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.5);
+    animation: slideUp 0.4s ease-out;
+    z-index: 1000;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cookie-banner.hide {
+    animation: slideDown 0.4s ease-in forwards;
+}
+
+.cookie-banner-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cookie-banner-text {
+    flex: 1;
+    text-align: left;
+    color: #ecf0f1;
+    line-height: 1.6;
+}
+
+.cookie-banner-icon {
+    font-size: 2.5em;
+    margin-right: 15px;
+}
+
+.cookie-banner-message {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cookie-banner-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 250px;
+}
+
+.cookie-banner button {
+    margin: 0;
+    min-width: 140px;
+    padding: 14px 24px !important;
+    font-size: 0.95em;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.cookie-banner .primary {
+    background: linear-gradient(135deg, #f1c40f, #e8b500);
+    color: black;
+    box-shadow: 0 4px 15px rgba(241,196,15,0.3);
+}
+
+.cookie-banner .primary:hover {
+    background: linear-gradient(135deg, #e8b500, #d4ac0d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(241,196,15,0.5);
+}
+
+.cookie-banner .primary:active {
+    animation: successPulse 0.4s ease-out;
+}
+
+.cookie-banner .danger {
+    background: rgba(230, 126, 34, 0.2);
+    color: #e67e22;
+    border: 2px solid #e67e22;
+}
+
+.cookie-banner .danger:hover {
+    background: #e67e22;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+}
+
+/* Success Message */
+.cookie-success-message {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(46, 213, 115, 0.95), rgba(46, 180, 115, 0.95));
+    color: white;
+    padding: 20px 40px;
+    border-radius: 50px;
+    display: none;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(46, 213, 115, 0.4);
+    animation: slideUp 0.4s ease-out;
+    z-index: 1001;
+    gap: 12px;
+    align-items: center;
+}
+
+.cookie-success-message.show {
+    display: flex;
+}
+
+.success-icon {
+    font-size: 1.5em;
+}
+
+/* Admin Add User */
+.admin-box {
+    max-width: 520px;
+    padding: 25px;
+}
+
+/* User List Styling */
+.users-table-container {
+    margin-top: 40px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.users-table-header {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.5fr 1fr;
+    gap: 15px;
+    background: linear-gradient(90deg, rgba(241,196,15,0.3), rgba(52,152,219,0.3));
+    padding: 20px;
+    font-weight: bold;
+    font-size: 0.95em;
+    color: #f1c40f;
+    border-bottom: 2px solid rgba(241,196,15,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.user-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.5fr 1fr;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    align-items: center;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.03);
+}
+
+.user-row:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateX(5px);
+    box-shadow: inset 0 0 10px rgba(241,196,15,0.1);
+}
+
+.user-row:last-child {
+    border-bottom: none;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #f1c40f;
+}
+
+.user-email {
+    color: #ecf0f1;
+    font-size: 0.95em;
+    word-break: break-all;
+}
+
+.user-phone {
+    color: #bdc3c7;
+    font-size: 0.95em;
+}
+
+.user-action {
+    display: flex;
+    gap: 8px;
+}
+
+.user-action button {
+    padding: 8px 14px !important;
+    margin: 0 !important;
+    font-size: 0.85em;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    width: auto;
+}
+
+.user-action .danger {
+    background: #e74c3c;
+    padding: 8px 18px !important;
+    width: 100%;
+}
+
+.user-action .danger:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+.user-row.saved-credential {
+    background: linear-gradient(90deg, rgba(52,152,219,0.15), rgba(52,152,219,0.05));
+    border-left: 3px solid #3498db;
+}
+
+.user-row.saved-credential:hover {
+    background: linear-gradient(90deg, rgba(52,152,219,0.2), rgba(52,152,219,0.1));
+}
+
+.saved-badge {
+    display: inline-block;
+    background: rgba(52,152,219,0.3);
+    color: #3498db;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-left: 8px;
+    border: 1px solid #3498db;
+}
+
+/* Password Match Validation */
+.password-group {
+    position: relative;
+}
+
+.password-match-indicator {
+    font-size: 0.85em;
+    padding: 8px 12px;
+    margin: 5px 0 10px 0;
+    border-radius: 6px;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.password-match-indicator.show {
+    display: flex;
+}
+
+.password-match-indicator.match {
+    background: rgba(46, 213, 115, 0.2);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.5);
+}
+
+.password-match-indicator.nomatch {
+    background: rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.5);
+}
+
+.match-icon {
+    font-size: 1.2em;
+}
